@@ -1,0 +1,18 @@
+// If valid
+//   say thanks
+// else
+//   render form
+
+<% if @message.errors.none? %>
+
+  var thehtml = '<%= j render partial: 'messages/thanks' %>';
+
+  $("#contact-form").html(thehtml);
+
+
+<% else %>
+
+  var thehtml = '<%= j render partial: 'messages/form' %>';
+
+  $("#contact-form").html(thehtml);
+<% end %>

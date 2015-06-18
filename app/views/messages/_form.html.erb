@@ -1,0 +1,6 @@
+<%= simple_form_for @message, remote: true do |f| %>
+  <%= f.input :from, label: 'Your Name', placeholder: 'Your name' %>
+  <%= f.input :email, label: 'Your Email', placeholder: 'you@example.com' %>
+  <%= f.input :message,  placeholder: "😢 or 😎 Your complaint (or compliment [LOL right?!]) goes here." %>
+  <%= f.submit 'Send Message', class: "btn btn-primary btn-block" %>
+<% end %>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  post 'messages' => 'messages#create', as: :messages
 
 
   get 'sessions/new' => 'sessions#new', as: :sign_in

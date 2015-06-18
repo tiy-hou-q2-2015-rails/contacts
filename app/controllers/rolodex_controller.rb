@@ -1,6 +1,7 @@
 class RolodexController < ApplicationController
   def index
     set_contacts
+    @message = Message.new
   end
 
   def destroy

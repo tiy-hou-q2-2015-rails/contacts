@@ -2,6 +2,18 @@
   <h1>Rollodex <small>like it's 1975</small></h1>
 </div>
 
-<div id="contacts">
-  <%= render partial: 'contacts' %>
+<div class="row">
+  <div class="col-md-8">
+    <div id="contacts">
+      <%= render partial: 'contacts' %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>Contact Us</h3>
+
+    <div id="contact-form">
+      <%= render partial: 'messages/form' %>
+    </div>
+
+  </div>
 </div>
