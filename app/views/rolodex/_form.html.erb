@@ -3,6 +3,7 @@
   <%= f.input :last_name %>
   <%= f.input :email, disabled: !contact.new_record? %>
   <%= f.input :phone %>
+  <%= f.input :photo %>
   <%= f.input :company_name %>
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

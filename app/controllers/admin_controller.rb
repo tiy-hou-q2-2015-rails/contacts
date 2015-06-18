@@ -67,6 +67,6 @@ class AdminController < ApplicationController
   end
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :email, :phone, :company_name)
+    params.require(:contact).permit(:first_name, :last_name, :email, :phone, :company_name, :photo)
   end
 end
