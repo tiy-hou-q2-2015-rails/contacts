@@ -1,0 +1,22 @@
+<% if @contact.errors.none? %>
+
+  alert("updated successfully");
+
+  // Close the modal
+
+  $("#contact-edit-<%= @contact.id %>").modal('hide');
+
+  //var row = $("tr[data-contact-id='<%= @contact.id %>']");
+  //row.find(".last_name").html('<%= j @contact.last_name %>');
+  //row.find(".first_name").html('<%= j @contact.first_name %>');
+
+  $("tr[data-contact-id='<%= @contact.id %>']").html("<%= j render partial: 'rolodex/contact_row', locals: {contact: @contact} %>");
+
+
+<% else %>
+
+  var thehtml = '<%= j render partial: 'rolodex/form', locals: {contact: @contact} %>';
+
+
+  $("#contact-edit-<%= @contact.id %> .remote-contact-form").html(thehtml);
+<% end %>

@@ -1,0 +1,66 @@
+  <td><%= contact.last_name %></td>
+  <td><%= contact.first_name %></td>
+
+  <td>
+
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#contact-detail-<%= contact.id %>">
+      View Detail
+    </button>
+
+    <% if @current_user.nil? %>
+
+      <%= link_to 'Sign In To Edit', sign_in_path %>
+
+    <% else %>
+
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#contact-edit-<%= contact.id %>">
+        Edit
+      </button>
+
+      <%= link_to 'Delete', delete_contact_path(id: contact.id, page: params[:page]), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger contact-delete' %>
+
+
+    <% end %>
+  </td>
+
+<!-- Modal -->
+<div class="modal fade" id="contact-edit-<%= contact.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Editing <%= contact.full_name %></h4>
+      </div>
+      <div class="modal-body">
+        <div class="remote-contact-form">
+          <%= render partial: 'rolodex/form', locals: {contact: contact} %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="contact-detail-<%= contact.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= contact.last_name %>, <%= contact.first_name %></h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li><strong>Phone</strong>: <%= link_to contact.phone, "tel:#{contact.phone}" %></li>
+          <li><strong>Email</strong>: <%= mail_to contact.email %></li>
+          <li><strong>Company</strong>: <%= contact.company_name %></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
