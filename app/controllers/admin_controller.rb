@@ -39,12 +39,25 @@ class AdminController < ApplicationController
 
   def update
     @contact = Contact.find params[:id]
-    # if @contact.update contact_params
-    #   redirect_to contact_path(id: @contact.id)
-    # else
-    #   render :edit
-    # end
-    @contact.update contact_params
+
+    respond_to do |format|
+      format.html do
+
+        if @contact.update contact_params
+          redirect_to contact_path(id: @contact.id)
+        else
+          render :edit
+        end
+
+      end
+
+      format.js do
+        @contact.update contact_params
+      end
+    end
+
+
+
   end
 
   def destroy

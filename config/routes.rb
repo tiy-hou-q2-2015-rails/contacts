@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   post 'messages' => 'messages#create', as: :messages
 
+  get '/contact_modal/:id' => 'rolodex#modal', as: :open_contact_modal
+
 
   get 'sessions/new' => 'sessions#new', as: :sign_in
   post 'sessions' => 'sessions#create', as: :auth

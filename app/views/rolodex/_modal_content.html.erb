@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="myModalLabel"><%= contact.last_name %>, <%= contact.first_name %></h4>
+</div>
+<div class="modal-body">
+  <ul>
+    <li><strong>Phone</strong>: <%= link_to contact.phone, "tel:#{contact.phone}" %></li>
+    <li><strong>Email</strong>: <%= mail_to contact.email %></li>
+    <li><strong>Company</strong>: <%= contact.company_name %></li>
+  </ul>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

@@ -1,0 +1,8 @@
+
+// Render some deets into the modal
+
+$("#contact-detail .modal-content").html("<%= j render partial: 'rolodex/modal_content', locals: {contact: @contact} %>");
+
+// Open a modal
+
+$("#contact-detail").modal('show');

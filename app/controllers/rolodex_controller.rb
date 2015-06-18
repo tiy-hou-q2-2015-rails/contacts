@@ -4,6 +4,10 @@ class RolodexController < ApplicationController
     @message = Message.new
   end
 
+  def modal
+    @contact = Contact.find params[:id]
+  end
+
   def destroy
     @contact = Contact.find params[:id]
     @contact.destroy
